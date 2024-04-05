@@ -1,8 +1,8 @@
 """
 Projeto: Farol de Vendas - Dashboard Interativo
-* @copyrigth    Sávio Silas <svosilas@gmail.com> - DEV Portal Vidros
+* @copyrigth    Sávio Silas <svosilas@gmail.com> - Desenvolvedor Portal Vidros
 * @date         11 Março 2024
-* @file         das_vendas.py
+* @file         dash_vendas.py
 * @brief
     Este script é responsável por criar um dashboard interativo de vendas utilizando Dash,
     uma framework Python para construção de aplicações web.
