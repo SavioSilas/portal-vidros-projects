@@ -1,3 +1,11 @@
+"""
+Projeto: Farol de Vendas - Dashboard Interativo
+* @copyrigth    Sávio Silas <svosilas@gmail.com> - Desenvolvedor Portal Vidros
+* @date         07 Março 2024
+* @file         dash_vendas.py
+* @brief        Dash de visialização de chamados
+"""
+
 import dash
 from dash import html, dcc, Input, Output
 import pandas as pd
