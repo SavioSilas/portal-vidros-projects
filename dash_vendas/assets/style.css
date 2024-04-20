@@ -1,0 +1,539 @@
+body {
+    background-color: #F4F7FE;  /* Exemplo de cor azul claro */
+}
+
+
+
+
+
+.container-fluid{
+    color: #2B3674;
+    
+}
+
+
+
+
+.card{
+    border-color:#F4F7FE;
+    border-radius: 5%;
+   background-color: #F4F7FE;
+    
+}
+
+
+#escalation-card.card{
+    background-color: #ffffff;
+    border-radius: 2dvh;
+    width: 100%;
+    height: 125px;
+    flex-shrink: 0;
+    font-family: Arial, sans-serif; /* Define a família da fonte */
+    font-weight: bold;
+    
+    color: #2B3674;/* Define a cor do texto */
+    text-align: center; /* Define o alinhamento do texto */
+    line-height: 1; /* Define a altura da linha do texto */
+    text-decoration: none; /* Remove qualquer decoração de texto */
+    text-transform: capitalize;
+    
+
+}
+
+
+.card-topo{
+    background-color: #ffffff;
+    border-radius: 2dvh;
+    /*width: 100%;*/
+    height: 125px;
+    flex-shrink: 0;
+    flex-shrink: 0;
+    font-family: Arial, sans-serif; /* Define a família da fonte */
+    font-weight: bold;
+    font-size: 1rem; /* Define o tamanho da fonte */
+    color: #2B3674; /* Define a cor do texto */
+    text-align: center; /* Define o alinhamento do texto */
+    line-height: 1.5; /* Define a altura da linha do texto */
+    text-decoration: none; /* Remove qualquer decoração de texto */
+    text-transform: capitalize;
+}
+
+.card-destaque {
+    height: 200px;
+}
+
+
+
+.card-text-pontuacao{
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.card-topo .card-title {
+    margin-left: 15px; /* Adiciona espaçamento entre os itens à esquerda */
+    margin-right: 10px; /* Adiciona espaçamento entre os itens à direita */
+
+    
+}
+
+.card-topo .card-text {
+    margin-top: 0.1px; /* Adiciona margem acima do texto */
+}
+
+.card-title{
+   color: #A3AED0;
+   font-size: 0.7rem;
+   font-family: Arial, sans-serif; /* Define a família da fonte */
+    font-weight: bold;
+ 
+
+
+}
+
+
+.mb-3{
+    color: #2B3674;
+}
+
+
+
+
+
+
+.container {
+    width: 100%; /* Ocupa toda a largura disponível do contêiner pai */
+    max-width: 100%; /* Garante que o contêiner não exceda a largura máxima do contêiner pai */
+    margin-left: auto; /* Alinha à esquerda */
+    margin-right: auto; /* Alinha à direita */
+    padding-left: 15px; /* Adiciona espaço interno à esquerda para evitar que o conteúdo fique colado à borda */
+    padding-right: 15px; /* Adiciona espaço interno à direita para evitar que o conteúdo fique colado à borda */
+    box-sizing: border-box; /* Inclui padding e borda na largura total do elemento */
+    background-color: #F4F7FE;
+}
+
+
+
+.Select-control{
+    background-color: #F4F7FE;
+    border-color:  #F4F7FE;
+    color: #2B3674;
+}
+
+.small-text {
+    font-size: 12px;  /* Ou qualquer outro tamanho que seja apropriado */
+}
+
+
+.cards-text{
+    padding: 20px 2px;
+}
+
+.text-center-titulo{
+    text-align: center;
+    padding: 5px 10px;
+    color: #2B3674;
+    font-weight: bold;
+    margin-top: 20px;
+    margin: 0px;
+    font-size: 2rem;
+}
+
+
+.text-center{
+    margin-top: 10px;
+    font-size: 1rem;
+    padding: 0px 0px 0px;
+    font-family: Arial, sans-serif; /* Define a família da fonte */
+    font-weight: bold;
+    color: #2B3674;
+
+}
+
+
+.cards-texts{
+    font-size: 0.8rem;
+    padding-top: 10px;
+}
+
+
+.mb-3{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    margin-top: 15px; 
+    height: 112px;
+}
+
+
+
+/* Centraliza o texto e elementos dentro do card */
+.card-title, .card-text {
+    text-align: center;
+}
+
+/* Ajustes adicionais para centralizar o conteúdo verticalmente nos cards */
+.d-flex.align-items-center.flex-column {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Estilo para input sem borda */
+input[type="text"][readonly] {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important; /* Ajusta o espaçamento conforme necessário */
+}
+
+.mb-3-1 {
+    margin-bottom: 1rem !important; /* Ajusta o espaçamento conforme necessário, exemplo de classe customizada */
+}
+
+
+
+
+.graph-titulo{
+    color: #2B3674;
+ 
+    
+    
+}
+
+
+.tabela-recompra .card{
+    background-color:#ffffff;
+}
+
+
+
+
+
+.month-name {
+    font-size: 0.7rem; 
+    color: #FFFFFF;  
+    background-color: #2B3674;
+    padding: 4px 15px;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.info-text{
+    padding: 5px 0px;
+}
+
+
+
+.info-number{
+    color:#A3AED0;
+    padding: 0px 0px;
+    margin-top: -10px;
+}
+
+.info-percent{
+    padding: 0px 0px;
+}
+
+
+.sub-text{
+    font-size: 1rem;
+    font-family: Arial, sans-serif; /* Define a família da fonte */
+    font-weight: bold;
+    color: #57C2CD;
+    align-items: center;
+    
+}
+
+/* TABELA */
+
+.card-style .card{
+    background-color: white; /* Fundo branco */
+    border-radius: 0.25rem; /* Bordas arredondadas */
+   border-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Altura completa */
+    margin-bottom: 10px;
+    
+}
+
+.col-equal-height {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.card-style-2 .card{
+    background-color: white; /* Fundo branco */
+    border-radius: #FFFFFF;
+    border-radius: 0.25rem; 
+    color: #2B3674;
+    
+
+
+}
+
+
+.card-header{
+    background-color: #FFFFFF;
+    border-radius: #FFFFFF;
+}
+
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th {
+    background-color: #ffffff;
+    
+}
+
+
+/* Ajuste a altura fixa conforme necessário para manter a mesma altura */
+.row-equal-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-equal-height {
+    display: flex;
+    border-radius: 20px;
+}
+
+/* Garante que o conteúdo dentro do card esteja centralizado e distribuído igualmente */
+.card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10%;
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 767.98px) {
+    .row-equal-height {
+        flex-direction: column;
+    }
+}
+
+
+/* ESTILO DOS TITULOS DA TABELA */
+
+.card-header-custom {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    /*padding: 0.75rem 1.25rem;*/
+}
+
+.card-header-custom h3 {
+    text-align: left;
+    color: #2B3674;
+    /*margin-bottom: 0;*/
+    font-size: 1.5rem;
+}
+
+
+.card-header .card-header-custom h3{
+    text-align: left;
+    color: #2B3674;
+    /*margin-bottom: 0;*/
+}
+
+
+/* ESTILO DOS TAMANHOS DA TABELA */
+
+/* Estilo para os cards, limitando altura e largura */
+.card-style {
+    
+    /*margin-bottom: 1rem; /* Espaçamento entre os cards */
+    overflow: auto; /* Habilita scroll vertical quando necessário */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Estilo para containers de tabelas, permitindo scroll horizontal */
+.card-style .dash-spreadsheet-container {
+    overflow-x: auto; /* Habilita scroll horizontal */
+    overflow-y: hidden; /* Evita scroll vertical */
+    -webkit-overflow-scrolling: touch; /* Melhora o scroll em dispositivos touch */
+    max-width: 100%; /* Garante que a tabela se ajuste ao tamanho do container */
+}
+
+
+/* Estilo para containers de tabelas, permitindo scroll horizontal */
+.card-style .dash-spreadsheet-container, 
+.card-style .dash-spreadsheet-inner {
+    overflow-x: auto; /* Habilita scroll horizontal */
+    overflow-y: hidden; /* Evita scroll vertical */
+    -webkit-overflow-scrolling: touch; /* Melhora o scroll em dispositivos touch */
+}
+
+
+
+
+
+/* tabela tamanho meio */
+
+.card-style .dash-spreadsheet-container .dash-spreadsheet {
+    border: none !important;
+    background-color: #f1f1f1 !important;
+    table-layout: fixed; /* Adicionar essa propriedade */
+    width: 100%; /* Adicionar essa propriedade */
+}
+
+
+
+
+
+
+
+
+
+/* Personaliza a aparência do scrollbar no WebKit browsers */
+.card-style .dash-spreadsheet-container::-webkit-scrollbar,
+.card-style .dash-spreadsheet-inner::-webkit-scrollbar {
+    height: 8px;
+}
+
+.card-style .dash-spreadsheet-container::-webkit-scrollbar-track,
+.card-style .dash-spreadsheet-inner::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.card-style .dash-spreadsheet-container::-webkit-scrollbar-thumb,
+.card-style .dash-spreadsheet-inner::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 4px;
+}
+
+.card-style .dash-spreadsheet-container::-webkit-scrollbar-thumb:hover,
+.card-style .dash-spreadsheet-inner::-webkit-scrollbar-thumb:hover {
+    background: rgb(179, 179, 179);
+}
+
+/* Estilo para as células das tabelas Dash */
+.card-style .dash-spreadsheet .dash-spreadsheet-inner td,
+.card-style .dash-spreadsheet .dash-spreadsheet-inner th {
+    background-color: #ffffff; /* Cor de fundo das células */
+    border: 1px solid #ffffff; /* Cor da borda das células */
+
+    font-size: 0.7rem; /* Tamanho da fonte */
+    font-family: Arial, sans-serif; /* Tipo de fonte */
+}
+
+/* Estilo para as células das tabelas Dash quando hover */
+.card-style .dash-spreadsheet .dash-spreadsheet-inner td:hover,
+.card-style .dash-spreadsheet .dash-spreadsheet-inner th:hover {
+    background-color: #ffffff; /* Cor de fundo das células quando hover */
+}
+
+/* Estilo para as células da tabela */
+.dash-cell {
+    /* Adicione os estilos desejados aqui */
+    border-color: rgb(255, 255, 255); /* Define a cor das bordas para branco */
+    color:#2B3674;
+
+}
+
+
+/* ESSA COR DA GRADE DAS TABELAS*/
+/* Estilo para a tabela */
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet {
+    border: none !important; /* Remove a borda externa da tabela */
+    background-color: #f1f1f1 !important;
+}
+
+/* Estilo para as células da tabela */
+.dash-spreadsheet-container .dash-spreadsheet td, 
+.dash-spreadsheet-container .dash-spreadsheet th {
+    border-left: none !important; /* Remove a borda esquerda das células */
+    border-right: none !important; /* Remove a borda direita das células */
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 1%; /* Adicionar essa propriedade */
+}
+
+/* Aplica a cor de fundo a todas as linhas */
+.dash-spreadsheet-container .dash-spreadsheet tr {
+    background-color: #fdfdfd !important; /* Substitua #f0f0f0 pela cor desejada */
+}
+
+/* Se desejar aplicar a cor de fundo alternadamente entre as linhas */
+.dash-spreadsheet-container .dash-spreadsheet tr:nth-child(odd) {
+    background-color: #fdfdfd !important; /* Cor para linhas ímpares */
+}
+
+.dash-spreadsheet-container .dash-spreadsheet tr:nth-child(even) {
+    background-color: #ffffff !important; /* Cor para linhas pares, pode ser a cor de fundo padrão */
+}
+/* FIM */
+
+
+.column-header-name{
+    color: #A3AED0;
+    text-transform: uppercase; /* Converte o texto para caixa alta */
+    
+}
+
+
+
+
+.btn-custom {
+    background-color: #3FB9C6; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    /* Outras propriedades como bordas, sombras, etc. */
+    float: right;
+    
+}
+
+
+
+
+.dash-table-container {
+    
+    overflow-y: auto;
+    white-space: nowrap;
+   
+}
+
+.table-cell {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    margin-right: 10px;
+}
+
+
+
+#faturamento_vidro_3m{
+    padding: 8.5px;
+    margin: 0px;
+}
+
+
+.unfocused p{
+    align-items: center;
+    margin: 10%;
+  
+}
+
+.card-body{
+    border-color: #FFFFFF;
+}
+
+
+/* TRATAMENTO PARA VARIAS TELAS */
+
+.g-gtitle{
+    text-decoration-color: brown !important;
+}
