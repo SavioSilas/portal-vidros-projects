@@ -231,7 +231,7 @@ def checar_cameras():
 
     print("CÂMERAS DA MATRIZ - s PRODUÇÃO")
     for channel in range(1, 17):
-        url_matriz_20 = f"rtsp://admin:portal@192.168.0.20:554/cam/realmonitor?channel={channel}&subtype=0"
+        url_matriz_20 = f"iavso"
         ok, problema = check_camera(url_matriz_20, channel)
         if not ok:
             cameras_producao.append(problema)
