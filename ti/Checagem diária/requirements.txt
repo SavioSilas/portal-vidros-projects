@@ -1,0 +1,14 @@
+certifi==2024.2.2
+chardet==4.0.0
+cv2==4.5.3
+email==6.1.0
+idna==3.6
+imaplib==3.4
+pandas==2.2.1
+numpy==1.26.4
+pyVmomi==8.0.2.0.1
+requests==2.31.0
+soupsieve==2.5
+ssl==2.7.0
+threading==0.1
+urllib3==2.2.1
