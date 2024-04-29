@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação Fiscal</title>
+    <style>
+        body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+.table-container {
+    margin-bottom: 40px;
+    overflow-y: auto;
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+   
+
+}
+
+/* estilo do cabeçalho */
+.table-container th {
+    background-color: #2B3674; /* Cor de fundo azul para os títulos */
+    color: white; /* Cor do texto dos títulos */
+    padding: 10px;
+}
+
+
+/* Estilo para fixar o cabeçalho */
+.table-container thead {
+    position: sticky;
+    top: 0; /* Fixa o cabeçalho no topo da área de visualização */
+    z-index: 1; /* Garante que o cabeçalho fique acima do conteúdo rolando */
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #2B3674;
+    font-weight: bold;
+}
+
+.filter-container {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-family: "Roboto", sans-serif;
+    color: #2B3674;
+    font-weight: bold;
+}
+
+/* Estilo para a data inicial */
+.filter-container input[type="date"]#start_date {
+    border-radius: 10px;
+    border: 2px solid #4CAF50; /* Cor da borda */
+    color: #4CAF50; /* Cor da fonte */
+    padding: 5px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Estilo para a data final */
+.filter-container input[type="date"]#end_date {
+    border-radius: 10px;
+    border: 2px solid #F44336; /* Cor da borda */
+    color: #F44336; /* Cor da fonte */
+    padding: 5px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* Estilo para o botão */
+.filter-container input[type="submit"] {
+    border-radius: 15px;
+    background-color: #2B3674;/* Cor de fundo azul */
+    color: #fff; /* Cor do texto branco */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo para quando o mouse passa sobre o botão */
+.filter-container input[type="submit"]:hover {
+    background-color: #3FB9C6; /* Altera a cor de fundo ao passar o mouse */
+}
+
+input[type="date"],
+input[type="submit"] {
+    padding: 8px;
+    margin-left: 5px;
+}
+
+.legend {
+    margin-top: 50px;
+    text-align: left;
+    width: 100%;
+    padding-left: 50%; /* aligns with the table start */
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.legend p {
+    margin-top: -10px; /* Define a margem superior dos parágrafos */
+}
+
+.cfop-5102{
+    color: #2B3674;
+    
+}
+
+.cfop-5405{
+    color: #3FB9C6;
+}
+
+.cfop-5101{
+    color: #888888;
+}
+
+
+.table-container .cfop-5102 {
+    background-color: rgba(43, 54, 116, 0.16); /* Cor de fundo para a primeira coluna (CFOP 5102) */
+}
+
+
+.table-container .cfop-5405 {
+    background-color: rgba(63, 185, 198, 0.16);
+    color: #2B3674;
+}
+
+.table-container .cfop-5101 {
+    background-color: #EDEDED;
+    color: #2B3674;
+}
+
+.removed.hidden {
+    display: none;
+  }
+
+    </style>
+</head>
+<body>
+    <h1>Automação Fiscal</h1>
+    
+    <div class="filter-container">
+        <form method="post">
+            <label for="start_date">Data Inicial:</label>
+            <input type="date" id="start_date" name="start_date" value="{{ start_date }}">
+            <label for="end_date">Data Final:</label>
+            <input type="date" id="end_date" name="end_date" value="{{ end_date }}">
+            <input type="submit" value="Filtrar">
+        </form>
+        {% if not data_available%}
+            <p>{{ message }}</p> 
+        {% endif %}
+    </div>
+
+    {% if data_available == True %}
+        <div class="legend">
+            <p><strong>CFOP 5102:</strong> Mostra as notas/produtos que não tenham o valor do ICMS ou Alíquota.</p>
+            <p><strong>CFOP 5405:</strong> Mostra as notas com valor de ICMS ou Alíquota.</p>
+            <p><strong>CFOP 5101:</strong> Mostra as notas que não foram emitidas pela PORTAL VIDROS (MATRIZ INDÚSTRIA).</p>
+        </div>
+
+        <div class="table-container">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>CFOP 5102</th>
+                        <th>CFOP 5405</th>
+                        <th>CFOP 5101</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index in range(max_rows) %}
+                    <tr>
+                        <td class="cfop-5102">
+                            {% if index < cfop_5102.shape[0] %}
+                            <div class="card" id="card_5102_{{ index }}" data-cfop="5102">
+                                <strong>Número da Nota:</strong> {{ cfop_5102.iloc[index]['numero_nota'] }}<br>
+                                <strong>Série:</strong> {{ cfop_5102.iloc[index]['serie'] }}<br>
+                                <strong>Data Emissão:</strong> {{ cfop_5102.iloc[index]['data_emissao'] }}<br>
+                                <strong>Valor da Nota:</strong> R$ {{ cfop_5102.iloc[index]['total_nota'] }}<br>
+                                <strong>Observação:</strong> {{ cfop_5102.iloc[index]['observacao'] }}<br>
+                                <input type="checkbox" id="verified_note_5102_{{ index }}" name="verified_note_5102_{{ index }}">
+                                <label for="verified_note_5102_{{ index }}">Nota Verificada</label><br>
+                                <button type="button" onclick="removerNota('5102', {{ index }})">Remover Nota</button>
+                            </div>
+                            {% endif %}
+                        </td>
+                        <td class="cfop-5405">
+                            {% if index < cfop_5405.shape[0] %}
+                            <div class="card {% if index in indices_to_add %}added{% endif %}{% if index in indices_to_remove %}removed{% endif %}{% if index in indices_to_move %}moved{% endif %}" id="card_5405_{{ index }}" data-cfop="5405">
+                                    <strong>Número da Nota:</strong> {{ cfop_5405.iloc[index]['numero_nota'] }}<br>
+                                    <strong>Série:</strong> {{ cfop_5405.iloc[index]['serie'] }}<br>
+                                    <strong>Data Emissão:</strong> {{ cfop_5405.iloc[index]['data_emissao'] }}<br>
+                                    <strong>Valor da Nota:</strong> R$ {{ cfop_5405.iloc[index]['total_nota'] }}<br>
+                                    <strong>Observação:</strong>{{ cfop_5405.iloc[index]['observacao'] }}<br>
+                                    <input type="checkbox" id="verified_note_5405_{{ index }}" name="verified_note_5405_{{ index }}">
+                                    <label for="verified_note_5405_{{ index }}">Nota Verificada</label><br>
+                                    <button type="button" onclick="removerNota('5405', {{ index }})">Remover Nota</button>
+                                </div>
+                            {% endif %}
+                        </td>
+                        <td class="cfop-5101">
+                            {% if index < cfop_5101.shape[0] %}
+                            <div class="card {% if index in indices_to_add %}added{% endif %}{% if index in indices_to_remove %}removed{% endif %}{% if index in indices_to_move %}moved{% endif %}" id="card_5101_{{ index }}" data-cfop="5101">
+                                    <strong>Número da Nota:</strong> {{ cfop_5101.iloc[index]['numero_nota'] }}<br>
+                                    <strong>Série:</strong> {{ cfop_5101.iloc[index]['serie'] }}<br>
+                                    <strong>Data Emissão:</strong> {{ cfop_5101.iloc[index]['data_emissao'] }}<br>
+                                    <strong>Valor da Nota:</strong> R$ {{ cfop_5101.iloc[index]['total_nota'] }}<br>
+                                    <input type="checkbox" id="verified_note_5101_{{ index }}" name="verified_note_5101_{{ index }}">
+                                    <label for="verified_note_5101_{{ index }}">Nota Verificada</label><br>
+                                    <button type="button" onclick="removerNota('5101', {{ index }})">Remover Nota</button>
+                                </div>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    {% endif %}
+    </div>
+    <script>
+        function removerNota(cfop, index) {
+    var checkboxId = 'verified_note_' + cfop + '_' + index;
+    var checkbox = document.getElementById(checkboxId);
+    if (checkbox && checkbox.checked) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/remover-nota", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    var cardId = 'card_' + cfop + '_' + index;
+                    var card = document.getElementById(cardId);
+                    if (card) {
+                        var column = card.closest('td'); // Encontre a coluna do card
+                        card.remove(); // Remova o card
+                        reorganizarCardsNaColuna(column, cfop); // Reorganizar os cards restantes
+                    } else {
+                        console.log('Falha ao encontrar o card para remover.');
+                    }
+                } else {
+                    alert('Erro ao remover a nota: ' + response.message);
+                }
+            }
+        };
+        xhr.send("cfop=" + encodeURIComponent(cfop) + "&index=" + encodeURIComponent(index));
+    } else {
+        alert('Por favor, verifique a nota antes de removê-la.');
+    }
+}
+
+function reorganizarCardsNaColuna(column, cfop) {
+    var cards = column.querySelectorAll('.card');
+    cards.forEach(function(card, newIndex) {
+        var oldIndex = card.getAttribute('id').split('_').pop();
+        card.id = 'card_' + cfop + '_' + newIndex;
+        var checkbox = document.getElementById('verified_note_' + cfop + '_' + oldIndex);
+        if (checkbox) {
+            checkbox.id = 'verified_note_' + cfop + '_' + newIndex;
+            var label = document.querySelector('label[for="verified_note_' + cfop + '_' + oldIndex + '"]');
+            if (label) {
+                label.setAttribute('for', 'verified_note_' + cfop + '_' + newIndex);
+            }
+        }
+        var button = card.querySelector('button');
+        if (button) {
+            button.setAttribute('onclick', 'removerNota("' + cfop + '", ' + newIndex + ')');
+        }
+    });
+}
+    </script>
+    
+</body>
+</html>
